@@ -1,0 +1,505 @@
+body{
+    background-image: url(/Image_inventory/WallPaper.webp);
+}
+.containers{
+    width: 60%;
+    height: 50rem;
+    background-color: white;
+    backdrop-filter: blur(2px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top-right-radius: 10px;
+    flex-grow: 0;
+    overflow: auto;
+}
+#hello{
+    font-size: 30px;
+}
+.show-profile{ 
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+    margin-top: 1%;
+}
+.list-menu{
+    width: 15%;
+    height: 50rem;
+    background-color: white;
+    padding: 10px;
+    display: block;
+    border-right: 1px solid black;
+}
+#space-address, #space-bought, #space-statuss, #space-member-card{
+    display: none;
+}
+
+
+
+.modal-content.scale {
+    height: 55vh;
+}
+.btn1{
+    width: 100%;
+    display: flex;
+    padding: 0% 3%;
+    justify-content: end;
+}
+#btn-add-address{
+    width: 20%;
+}
+.account-item {
+    display: flex;
+    align-items: center;
+    /* justify-: center; */
+    padding: 10px;
+    max-width: 100%;
+    width: 100%;
+    height: 10%;
+    /* border: 1px solid black; */
+    box-sizing: border-box;
+    cursor: pointer;
+}
+.account-item:hover{
+    border-bottom: 4px solid #962a00;
+    transition: 0.3s;
+}
+.account-item h2 {
+    padding-top: 10px;
+    font-weight: 600;
+    font-size: 18px;
+}
+
+.account-item i {
+    color: #000000;
+    margin: 0 0;
+    margin-right: 5%;
+    font-size: 18px;
+}
+.head1{
+    height: 15%;
+    background-color: #962a00;
+    color: white;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    cursor: auto;
+}
+.head1 i{
+    font-size: 2rem;
+    margin-left: 5%;
+    margin-right: 10%;
+    color: white;
+}
+
+.space{
+    max-width: 100%;
+    width: 95%;
+    height: 80%;
+    background-color: transparent;
+    border-radius: 10px;
+    color: black;
+}
+.account-topic{
+    display: flex;
+}
+.account-topic h2{
+    width: 90%;
+    height: 15%;
+    font-weight: bold;
+    font-size: 22px;
+}
+.space .detail-topic{
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    color: black;
+}
+#username{
+    font-size: 22px;
+}
+.row{
+    /* border: 1px solid black; */
+    margin-bottom: 2%;
+}
+.col input{
+    width: 100%;
+}
+
+@media screen and (max-width: 1024px) {
+    .list-menu {
+        width: 25%;
+    }
+}
+@media screen and (max-width: 768px) {
+    .list-menu {
+        width: 30%;
+    }
+}
+@media screen and (max-width: 425px) {
+    .list-menu {
+        width: 40%;
+    }
+    .account-item h2 {
+        font-size: 14px;
+    }
+}
+
+
+/* Info-user */
+#staticEmail{
+    width: 40%;
+    color: black;
+    margin-left: 1%;
+    background-color: transparent;
+    border: none;
+    font-size: 24px;
+}
+#row-username{
+    display: flex;
+    text-align: center;
+    align-items: center;
+    margin-left: 5%;
+    font-size: 24px;
+}
+.custom-input {
+    width: 40%;
+}
+#dob1{
+    width: 100%;
+}
+.btn-danger{
+    margin-left: 5%;
+}
+
+/* Address */
+.user-address{
+    display: flex;
+    width: 100%;
+    height: 20%;
+    border: 1px dotted grey;
+    max-width: 100%;
+    padding: 6px 10px;
+    margin-bottom: 1%;
+    /* max-height: 100%; */
+}
+.account-topic{
+    margin-bottom: 2%;
+}
+
+.account-topic button {
+    width: 10%;
+}
+
+.address-list h5 {
+    font-weight: bold;
+}
+
+.address-list{
+    width: 50%;
+    height: 100%;
+    max-height: 100%;
+}
+.address-list2{
+    width: 50%;
+    height: 100%;
+    max-height: 100%;
+    text-align: right;
+}
+
+@media screen and (max-width: 768px) {
+    .address-list h5 {
+        font-size: 16px;
+        font-weight: bold;
+    }
+    .address-list p {
+        font-size: 12px;
+    }
+    .account-topic button {
+        width: 25%;
+    }
+}
+@media screen and (max-width: 425px) {
+    .account-topic h2 {
+        font-size: 17px;
+        font-weight: bold;
+    }
+    #row-username, #staticEmail {
+        font-size: 16px;
+    }
+    .row .col label{
+        font-size: 14px;
+    }
+    .row .col input {
+        width: 100%;
+        font-size: 10px;
+    }
+    .detail-topic button {
+        width: 40%;
+        font-size: 12px;
+    }
+    .address-list {
+        width: 90%;
+    }
+
+    .address-list h5 {
+        font-size: 12px;
+        font-weight: bold;
+    }
+    .address-list p {
+        font-size: 10px;
+    }
+    .account-topic button {
+        width: 50%;
+        font-size: 12px;
+    }
+}
+
+/* History bough */
+.history-bought {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 14px 14px;
+    margin-bottom: 5%;
+    box-shadow: 5px 10px 10px 10px #888888;
+}
+.box-bought{
+    width: 100%;
+    height: auto;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+}
+.bought {
+    display: flex;
+    height: 7rem;
+    /* align-items: center; */
+    /* border: 1px solid orange; */
+}
+
+.img-bought{
+    padding: 2px 2px;
+    width: 20%;
+    max-height: 100%;
+    max-width: 100%;
+    height: auto;
+}
+.img-bought img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+@media screen and (max-width: 1024px) {
+    .img-bought {
+        width: 30%;
+        max-height: 100%;
+        max-width: 100%;
+    }
+}
+@media screen and (max-width: 768px) {
+    .img-bought {
+        width: 70%;
+        height: auto;
+    }
+    .img-bought img{
+        height: 100%;
+    }
+}
+@media screen and (max-width: 425px) {
+    .img-bought {
+        width: 100%;
+        height: 80%;
+    }
+    
+}
+
+.detail-menu {
+    width: 70%;
+    overflow: hidden;
+    font-size: 14px;
+    padding: 4px 4px;
+}
+.detail-cost{
+    width: 10%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ff4444;
+}
+
+.total-price {
+    width: 100%;
+    padding: 6px 6px;
+    text-align: end;
+    font-size: 22px;
+    font-weight: 600;
+}
+
+/* Status-Order */
+/* #space-status{
+    display: block;
+} */
+.box-status{
+    padding: 4px 4px;
+    width: 100%;
+    height: auto;
+    /* border: 1px solid black; */
+}
+.table-status th{
+    text-align: center;
+}
+.table-status td{
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+.fa-circle-check{
+    color: green;
+    margin: 0 auto;
+}
+.fa-circle-xmark{
+    color: red;
+    margin: 0 auto;
+}
+.fa-clock {
+    color: black;
+    margin: 0 auto;
+}
+
+@media screen and (max-width: 1024px) {
+    .fa-circle-check, .fa-circle-xmark, .fa-clock {
+        font-size: 20px;
+    }
+}
+
+/* Card-Point */
+.box-point{
+    padding: 6px 18px;
+    width: 100%;
+    height: 18rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.img-point {
+    width: 40%;
+    height: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+.img-point img{
+    width: 100%;
+    height: auto;
+}
+.detail-point {
+    width: 60%;
+    height: 100%;
+    max-height: 100%;
+    text-align: center;
+    padding: 16px 16px;
+}
+.detail-text{
+    width: 100%;
+    height: 80%;
+    margin-bottom: 2%;
+    /* border: 5px solid salmon; */
+}
+.detail-text h5 {
+    font-weight: bold;
+}
+
+.detail-point h1{
+    color: #ff4444;
+    font-weight: 600;
+}
+#code{
+    color: white;
+}
+
+@media screen and (max-width: 1024px) {
+
+    .detail-text h5 {
+        font-weight: bold;
+    }
+    .detail-text p {
+        font-size: 14px;
+    }
+}
+
+@media screen and (max-width: 425px) {
+    .detail-text h5 {
+        font-size: 14px;
+    }
+    .detail-point h1 {
+        font-size: 18px;
+    }
+    .detail-text p {
+        font-size: 10px;
+    }
+    .detail-point button {
+        width: 90%;
+        font-size: 12px;
+    }
+}
+
+/* ---------------------------------------------------------- */
+/* Footer */
+.footer{
+    width: 100%;
+    /* padding: 20px; */
+    height: 50vh;
+    background-color:#000000;
+    /* text-align: center; */
+}
+.box-footer{
+    width: 100%;
+    height: auto;
+    /* border: 1px solid red; */
+    position: absolute;
+    /* left: 50%;
+    transform: translate(-50%); */
+    margin-top: 40px;
+    z-index: 1;
+    color: white;
+}
+.box-footer p{
+    font-size: 20px;
+}
+.box-footer h1{
+    font-weight: bold;
+}
+i{
+    margin-top: 20px;
+    margin-right: 30px;
+    font-size: 30px;
+    color: white;
+}
+#locate{
+    padding: 10px;
+    margin-top: 10px;
+    margin-right: 5px;
+    color: #ff4444;
+}
+.row{
+    font-family: "Mitr", sans-serif;
+    font-style: normal;
+    width: 100%;
+}
+.col{
+    margin-left: 5%;
+}
+.col .icon{
+    text-align: left;
+}
+.col h2{
+    color: #ffc400;
+    font-weight: bold;
+}
+.modal-lg {
+    width: 100vh;
+}
+.modal-lg .modal-title{
+    font-weight: bolder;
+    font-size: 36px;
+}

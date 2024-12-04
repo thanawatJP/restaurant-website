@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+      integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"
+      integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <title>Document</title>
+  </head>
+  <body>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        background-image: url("./Image_inventory/Background-Kitchen.png");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        height: 100vh;
+        margin: 0;
+        position: relative;
+      }
+      body::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(
+          0,
+          0,
+          0,
+          0.5
+        ); /* Adjust the alpha value for darkness */
+      }
+      h1 {
+        text-align: center;
+        font-weight: bold;
+        margin-bottom: 3rem;
+      }
+      .container {
+        width: 39%;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        border: 3px solid #ffffff;
+        background-color: transparent;
+        backdrop-filter: blur(10px);
+        border-radius: 14px;
+        padding: 20px;
+        color: white;
+        height: 60%;
+      }
+      .form-control {
+        position: relative;
+        left: 50%;
+        transform: translate(-50%);
+        width: 80%;
+      }
+      .form-label {
+        position: relative;
+        font-size: 20px;
+        left: 16%;
+        transform: translate(-50%);
+        font-weight: 500;
+      }
+      .btn-primary {
+        display: block;
+        margin: 0 auto;
+        margin-top: 2rem;
+        width: 80%;
+        border-radius: 20px;
+        font-size: 20px;
+        background-color: transparent;
+        border: 2px solid #ffffff;
+      }
+      .btn-primary:hover {
+        background-color: white;
+        color: black;
+        border: 2px solid white;
+      }
+      p {
+        text-align: center;
+      }
+    </style>
+    <div class="container-fluid">
+      <div class="container">
+        <form action="/action_page.php">
+          <h1>KhunGame STAFF Only</h1>
+          <hr />
+          <div class="mb-3 mt-3 block">
+            <label for="username" class="form-label">Username</label>
+            <input
+              type="text"
+              class="form-control"
+              id="username"
+              placeholder="Enter username"
+              name="username"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="pwd" class="form-label">Password</label>
+            <input
+              type="password"
+              class="form-control"
+              id="pwd"
+              placeholder="Enter password"
+              name="pswd"
+            />
+          </div>
+          <button type="button" class="btn btn-primary" onclick="gotologin()">
+            Login</button
+          ><br />
+          <p>
+            If you need a username, please contact the store manager or system
+            administrator.
+          </p>
+        </form>
+      </div>
+    </div>
+
+    <script
+      src="https://code.jquery.com/jquery-3.7.1.js"
+      integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+      function gotologin() {
+        var pass = true;
+        if ($("#username").val().length <= 0) {
+          pass = false;
+          Swal.fire({
+            icon: "error",
+            title: "Please insert username",
+            timer: 1000,
+          });
+        } else if ($("#pwd").val().length <= 0) {
+          pass = false;
+          Swal.fire({
+            icon: "error",
+            title: "Please insert password",
+            timer: 1000,
+          });
+        }
+        if (pass) {
+          console.log("go to login...");
+          $.ajax({
+            method: "post",
+            url: "./backend/api/stafflogin.php",
+            data: {
+              username: $("#username").val(),
+              password: $("#pwd").val(),
+            },
+            success: (response) => {
+              console.log("valid", response);
+              console.log(response);
+              var responseObject = JSON.parse(response);
+              if (responseObject.RespCode == 200) {
+                alert("Login success!!");
+                localStorage.setItem("username", responseObject.User.Username);
+                localStorage.setItem("uid", responseObject.User.Uid);
+                if (responseObject.User.Gid == 2) {
+                    window.location.href = "./staff.php";
+                }else if ((responseObject.User.Gid == 3)){
+                    window.location.href = "./manager.php";
+                } 
+              } else {
+                alert("Login success!!");
+              }
+            },
+            error: (err) => {
+              console.log("error", err);
+            },
+          });
+        }
+      }
+    </script>
+  </body>
+</html>
